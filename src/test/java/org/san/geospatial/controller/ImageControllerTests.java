@@ -40,7 +40,28 @@ public class ImageControllerTests {
 	     }
 
 	  @Test
-	     public void testImageDownload() {
+	     public void testImageDownloadSuccess() {
+	         // @formatter:off
+				Response response = given().
+						contentType(ContentType.JSON)
+						.accept(ContentType.JSON)
+						.body("{\n" + 
+								"    \"utmZone\": 33,\n" + 
+								"    \"latitudeBand\": \"U\",\n" + 
+								"    \"gridSquare\": \"UP\",\n" + 
+								"    \"date\": \"2018-08-04\",\n" + 
+								"    \"channelMap\": \"visible\"\n" + 
+								"}")
+						.when()
+						.post("/generate-images");
+				// @formatter:on
+				
+				response.then().statusCode(200);
+				System.out.println("POST Response\n" + response.asString());
+				// tests
+	  }
+	  @Test
+	     public void testImageDownloadFailure() {
 	         // @formatter:off
 				Response response = given().
 						contentType(ContentType.JSON)
@@ -58,7 +79,6 @@ public class ImageControllerTests {
 				
 				response.then().statusCode(404);
 				System.out.println("POST Response\n" + response.asString());
-				// tests
 	  }
 }
 

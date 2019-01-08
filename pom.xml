@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>org.san</groupId>
 	<artifactId>geospatial</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>demo</name>
 	<description></description>
 
